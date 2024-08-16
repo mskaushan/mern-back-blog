@@ -41,6 +41,7 @@ app.post('/upload', checkAuth, upload.single('image'), (req, res) => {
     res.json({
         url: `/uploads/${req.file.originalname}`,
     });
+    console.log(req.file.originalname)
 });
 
 app.post('/posts', checkAuth, postCreateValidation, handleValidationErrors, PostController.create);
